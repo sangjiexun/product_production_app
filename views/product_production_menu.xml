@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<odoo>
+    <!-- Product Production App Menu -->
+    <menuitem id="menu_production" name="生産情報"/>
+    <!-- Action to open the Product Production list -->
+    <act_window id="action_product_production" 
+            name="生産情報" 
+            res_model="product.production" 
+            view_mode="tree,form" />
+
+    <act_window id="action_product_production_storage" 
+            name="製品入庫" 
+            res_model="product.production" 
+            target="new"
+            view_mode="form" />
+    <!-- Menu item to open the Product Production list -->
+    <menuitem id="menu_product_production" 
+            name="製品一覧" 
+            parent="menu_production"
+            action="action_product_production" />
+</odoo>
