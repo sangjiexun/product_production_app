@@ -54,3 +54,12 @@ class ProductProduction(models.Model):
            # if book.isbn and not book._check_isbn():
             #    raise Warning('%s is an invalid ISBN' % book.isbn)
         return True
+    def button_input_individual(self):
+        #個別入庫画面に遷移
+        return True
+    def button_input_batch(self):
+        #バッチ入庫画面に遷移
+        return True
+    def button_input_confrim(self):
+        #入庫画面の｢入庫｣ボタンの対応
+        return True

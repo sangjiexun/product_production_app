@@ -9,7 +9,7 @@
             view_mode="tree,form" />
 
     <act_window id="action_product_production_storage" 
-            name="製品入庫" 
+            name="入庫操作アクション" 
             res_model="product.production" 
             target="new"
             view_mode="form" />
@@ -18,4 +18,9 @@
             name="製品一覧" 
             parent="menu_production"
             action="action_product_production" />
+    <!--展示用VIEW-->
+    <menuitem id="menu_product_productio_storagen"
+            name="入庫操作画面"
+            parent="menu_production"
+            action="action_product_production_storage" />
 </odoo>
