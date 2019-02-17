@@ -19,4 +19,8 @@
         'views/product_production_list_template.xml',
         'views/product_production_storage_view.xml',
     ],
+    'demo': [ 
+        #'data/res.partner.csv', 
+        'data/product.production.csv',
+    ],
 }
