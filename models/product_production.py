@@ -5,7 +5,7 @@ from odoo.exceptions import Warning
 class ProductProduction(models.Model):
     _name = 'product.production' #モデル名
     _description = 'Product Prodtuction' #説明
-    barcode = fields.Char('製品バーコード') #product_no+serial_no
+    barcode = fields.Char('製品バーコード',size=13) #product_no+serial_no
     name = fields.Char('Name') 
     product_no = fields.Char('製品番号') 
     purchase_order_name  = fields.Char('購買オーダ名') 
