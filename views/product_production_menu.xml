@@ -9,7 +9,7 @@
             view_mode="tree,form" />
     <!--バッチ入庫作業action-->
     <act_window id="action_product_production_batch" 
-            name="バッチ入庫作業"
+            name="一括入庫作業"
             view_id="product_production_input_batch_view"
             res_model="product.production" 
             target="new"
@@ -21,10 +21,24 @@
             res_model="product.production" 
             target="new"
             view_mode="form" />
+    <!--個別入庫(問題)作業action-->
+    <act_window id="action_product_production_kanban" 
+            name="個別入庫(問題)作業"
+            view_id="product_production_input_kanban_view"
+            res_model="product.production" 
+            target="new"
+            view_mode="kanban" />
     <!--清掃action-->
     <act_window id="action_product_production_clean" 
             name="清掃作業"
             view_id="product_production_clean_view"
+            res_model="product.production" 
+            target="new"
+            view_mode="form" />
+    <!--出荷action-->
+    <act_window id="action_product_production_ship" 
+            name="出荷作業"
+            view_id="product_production_ship_view"
             res_model="product.production" 
             target="new"
             view_mode="form" />
@@ -33,19 +47,29 @@
             name="製品一覧" 
             parent="menu_production"
             action="action_product_production" />
-    <!--バッチ入庫作業menu-->
-    <menuitem id="menu_product_productio_batch"
-            name="バッチ入庫作業画面"
+    <!--一括入庫作業menu-->
+    <menuitem id="menu_product_production_batch"
+            name="一括入庫作業画面"
             parent="menu_production"
             action="action_product_production_batch" />
     <!--個別入庫作業menu-->
-    <menuitem id="menu_product_productio_individual"
+    <menuitem id="menu_product_production_individual"
             name="個別入庫作業画面"
             parent="menu_production"
             action="action_product_production_individual" />
+    <!--個別入庫作業kanbanmenu-->
+    <menuitem id="menu_product_production_kanban"
+            name="個別入庫(問題)作業画面"
+            parent="menu_production"
+            action="action_product_production_kanban" />
     <!--清掃作業menu-->
-    <menuitem id="menu_product_productio_clean"
+    <menuitem id="menu_product_production_clean"
             name="清掃作業画面"
             parent="menu_production"
             action="action_product_production_clean" />
+    <!--出荷作業menu-->
+    <menuitem id="menu_product_production_ship"
+            name="出荷作業画面"
+            parent="menu_production"
+            action="action_product_production_ship" />
 </odoo>

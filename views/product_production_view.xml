@@ -68,7 +68,7 @@
         </field>
     </record>
     <record id="product_production_input_batch_view" model="ir.ui.view">
-        <field name="name">製品バッチ入庫</field>
+        <field name="name">製品一括入庫</field>
         <field name="model">product.production</field>
         <field name="priority">16</field>
         <field name="arch" type="xml">
@@ -107,6 +107,36 @@
                 </notebook>
             </sheet>
         </form>
+        </field>
+    </record>
+    <record id="product_production_ship_view" model="ir.ui.view">
+        <field name="name">製品出荷</field>
+        <field name="model">product.production</field>
+        <!--<field name="priority">15</field>-->
+        <field name="arch" type="xml">
+        <form string="product_production">
+            <header>
+              <!--<button name="button_input_individual" type="object" string="入庫" />-->
+            </header>
+            <sheet>
+                <notebook>
+                    <page string="スキャンしたバーコード" name="barcode_lines">
+                            <tree>
+                                <field name="barcode" />
+                            </tree>
+                            <!-- <field name="product_no" />-->
+                    </page>
+                </notebook>
+            </sheet>
+        </form>
+        </field>
+    </record>
+    <record id="product_production_input_kanban_view" model="ir.ui.view">
+        <field name="model">product.production</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="product_status"/>
+            </kanban>
         </field>
     </record>
 </odoo>
