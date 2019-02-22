@@ -14,9 +14,6 @@
     'data': [
         'security/product_production_security.xml',
         'security/ir.model.access.csv',
-        'views/product_production_input_individual_view.xml',
-        'views/product_production_input_batch_view.xml',
-        "views/product_production_clean_view.xml",
         'views/product_production_menu.xml',
         'views/product_production_view.xml',
         'views/product_production_list_template.xml',
