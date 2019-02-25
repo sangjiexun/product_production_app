@@ -5,17 +5,22 @@ from odoo.exceptions import Warning
 class ProductProduction(models.Model):
     _name = 'product.production' #モデル名
     _description = 'Product Prodtuction' #説明
-    barcode = fields.Char('製品バーコード',size=13) #product_no+serial_no
+    barcode = fields.Char('製品バーコード',size=13,readonly=True) #product_no+serial_no
     name = fields.Char('Name') 
-    product_no = fields.Char('製品番号') 
-    purchase_order_name  = fields.Char('購買オーダ名') 
-    repair_order_name  = fields.Char('修理オーダ名') 
-    sale_order_name  = fields.Char('販売オーダ名') 
-    serial_no  = fields.Char('製品シリアル番号') 
+    product_no = fields.Char('製品番号',readonly=True) 
+    purchase_order_name  = fields.Char('購買オーダ名',readonly=True) 
+    repair_order_name  = fields.Char('修理オーダ名',readonly=True) 
+    sale_order_name  = fields.Char('販売オーダ名',readonly=True) 
+    serial_no  = fields.Char('製品シリアル番号',readonly=True) 
     stock_status  = fields.Integer('在庫状態') #0：入荷 1：在庫 2：出庫 3：出荷 4：廃棄
     stock_status_child  = fields.Integer('在庫状態(その他)') #返品､製造､梱包､清掃､修理
-    product_status  = fields.Integer('生産状態') #0：正常  1：損壊 2：廃棄 3：販売可 
-    remark  = fields.Char('備考') #備考 メモ
+    product_status  = fields.Selection([
+        ('0', '正常'),
+        ('1', '瑕疵品(可用)'),
+        ('2', '瑕疵品(作废)'),
+        ('3', '瑕疵品(その他)'),
+    ], default='0', string='入荷製品状態')
+    remark  = fields.Text('備考') #備考 メモ
     #印刷
     def button_print(self):
         #for book in self:

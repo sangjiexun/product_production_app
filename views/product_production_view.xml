@@ -20,8 +20,11 @@
 		                <field name="repair_order_name" />
 		                <field name="sale_order_name" />
 				        <field name="stock_status"/>
-				        <field name="stock_status_child"/>
-			        </group>
+				        <field name="product_status"/>
+                    </group>
+                </group>
+                <group name="group_under">
+                    <field name="remark" />
 		        </group>
 	        </sheet>
         </form>
@@ -31,7 +34,7 @@
         <field name="name">製品一覧</field>
         <field name="model">product.production</field>
         <field name="arch" type="xml">
-            <tree>
+            <tree editable="top">
                 <field name="name"/>
                 <field name="barcode"/>  
                 <field name="product_no"/>  
@@ -41,6 +44,7 @@
                 <field name="serial_no"/>  
                 <field name="stock_status"/>  
                 <field name="stock_status_child"/>
+                <field name="product_status"/>
                 <field name="remark"/>
             </tree>
         </field>
@@ -92,21 +96,12 @@
         <field name="model">product.production</field>
         <!--<field name="priority">15</field>-->
         <field name="arch" type="xml">
-        <form string="product_production">
-            <header>
-              <!--<button name="button_input_individual" type="object" string="入庫" />-->
-            </header>
-            <sheet>
-                <notebook>
-                    <page string="スキャンしたバーコード" name="barcode_lines">
-                            <tree>
-                                <field name="barcode" />
-                            </tree>
-                            <!-- <field name="product_no" />-->
-                    </page>
-                </notebook>
-            </sheet>
-        </form>
+            <tree editable="bottom" string="スキャンしたバーコード一覧">
+                 <field name="product_no" />
+                 <field name="barcode" />
+                 <field name="product_status" />
+                 <field name="remark" />
+             </tree>
         </field>
     </record>
     <record id="product_production_ship_view" model="ir.ui.view">
@@ -129,14 +124,6 @@
                 </notebook>
             </sheet>
         </form>
-        </field>
-    </record>
-    <record id="product_production_input_kanban_view" model="ir.ui.view">
-        <field name="model">product.production</field>
-        <field name="arch" type="xml">
-            <kanban>
-                <field name="product_status"/>
-            </kanban>
         </field>
     </record>
 </odoo>
