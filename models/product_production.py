@@ -21,6 +21,9 @@ class ProductProduction(models.Model):
         ('3', '瑕疵品(その他)'),
     ], default='0', string='Product Status')
     remark  = fields.Text('Remark') #備考 メモ
+    #scan_barcode event
+    def onchange_scan_barcode(self):
+        return True
     #印刷
     def button_print(self):
         #for book in self:

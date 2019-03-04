@@ -2,15 +2,30 @@
 <odoo>
     <template id="product_production_list" name="Product Production List">
         <t t-call="web.html_container">
+            <script>
+                function myFunction(){
+                alert(222);
+
+                var tbody = document.createElement("tbody");
+                var tr = document.createElement("tr");
+                var td = document.createElement("td");
+                td.innerHTML = "&lt;td>001 &lt;/td>";
+                tr.appendChild(td);
+                var td2 = document.createElement("td");
+                td2.innerHTML = "&lt;td>1&lt;/td> ";
+                tr.appendChild(td2);
+                var td3 = document.createElement("td");
+                td3.innerHTML = "&lt;td>new remark&lt;/td>";
+                tr.appendChild(td3);
+                tbody.appendChild(tr);
+                var parNode = document.getElementById("tbody_production");
+                parNode.appendChild(tbody);
+                }
+            </script>
             <div class="container">
                 <h1>入庫作業</h1>
                 <p>1:スキャンしたバーコードを表示します｡</p>
                 <p>2:作業完了後､入庫ボタンを押してください</p>
-                <form>
-                    <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="スキャンしたバーコード" />
-                    </div>
-                </form>
                 <table class="table table-bordered">
                     <thead>
                         <tr>
@@ -19,7 +34,7 @@
                             <th>Remark</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="tbody_production">
                         <t t-foreach="pps" t-as="o">
                             <tr>
                                 <td><span t-field="o.serial_no" /></td>
@@ -29,6 +44,13 @@
                         </t>
                     </tbody>
                 </table>
+                <form>
+
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="スキャンしたバーコード" onchange="myFunction()"/>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-lg active">Warehousing</button>
+                </form>
             </div>
         </t>
     </template>
