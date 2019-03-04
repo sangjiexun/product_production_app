@@ -12,14 +12,14 @@
     'application': True,
     'license': 'LGPL-3',
     'data': [
-        'security/product_production_security.xml',
-        'security/ir.model.access.csv',
         'views/product_production_view.xml',
         'views/product_production_menu.xml',
-        'views/product_production_list_template.xml',
+        'views/product_production_management.xml',
+        'security/product_production_security.xml',
+        'security/ir.model.access.csv',
     ],
-    'demo': [ 
+   # 'demo': [
         #'data/res.partner.csv', 
        # 'data/product.production.csv',
-    ],
+    #],
 }
